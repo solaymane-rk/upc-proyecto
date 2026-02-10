@@ -5,5 +5,6 @@ import { FeaturesComponent } from './pages/features/features.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
+    {path: 'inicio', component: HomeComponent},
     {path: 'features', component: FeaturesComponent}
 ];
