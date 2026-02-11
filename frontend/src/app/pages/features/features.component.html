@@ -1,8 +1,8 @@
-<section class="h-screen bg-[url(/images/bg-features.jpg)] bg-cover relative bg-bottom bg-fixed
+<section class="sm:h-screen sm:py-0 py-30 bg-[url(/images/bg-features.jpg)] bg-cover bg-bottom bg-fixed relative 
         after:absolute after:opacity-30 after:z-0 after:bg-black after:w-full after:h-full after:top-0 after:left-0">
-    <div class="text-amber-50 flex items-center h-full ms-[221px]">
-        <div class="z-10 w-4/12">
-            <h1 class="text-5xl mb-5">Proyecto</h1>
+    <div class="text-amber-50 flex items-center h-full xl:p-50 md:p-20 p-10">
+        <div class="z-10 lg:w-4/12">
+            <h1 class="text-5xl mb-5">Simulador de Satélite Educativo</h1>
             <p class="text-1xl font-normal mb-5">Descubre cómo un grupo de estudiantes de la UPC ha diseñado un simulador de satélite basado en Arduino.</p>
             <a href="/features/#features" class="
                 text-white font-semibold px-8 py-2 bg-[#ffffff33] rounded-[55px] border border-[#ffffff]
@@ -15,21 +15,91 @@
 </section>
 
 <!-- SECCION DE FEATURES-->
-<section id="features">
-    <div class="bg-black grid grid-cols-1 grid-rows-1 gap-[240px] px-40 py-20">
-        <!-- CONTENEDORES PAR (IMAGEN-TEXTO)-->
-        <div class="w-full h-[600px] flex grid-cols-2 gap-30 justify-between">
-            
-            <!-- IMAGEN -->
-            <div class="w-6/12 bg-[url(/images/satelit-bg-1.jpg)] bg-cover bg-center"></div>
+<section id="features" class="bg-black">
+  <div class="grid lg:gap-60 gap-30 mx-auto xl:px-50 lg:px-30 md:px-20 px-10  py-16 lg:py-24">
 
-            <!-- TEXTO -->
-            <div class="w-6/12 text-white my-auto">
-                <p class="text-[42px] mb-3 font-manrope leading-14 ">Monitorización Ambiental en Tiempo Real</p>
-                <p class="text-[18px] font-poppins font-light text-base leading-6.75">El satélite incorpora sensores que permiten medir temperatura, humedad y presión atmosférica de forma continua. Los datos recogidos se transmiten a la estación de tierra, donde se procesan y representan mediante gráficas claras que facilitan el análisis y la comprensión de las condiciones ambientales registradas durante la misión.</p>
-            </div>
-        </div>
-        
+    <!-- FEATURE 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+      <!-- IMAGEN -->
+      <div class="w-full h-[220px] sm:h-[300px] lg:h-[400px] xl:h-[700px] overflow-hidden">
+        <div class="w-full h-full bg-[url('/images/satelit-bg-1.jpg')] bg-cover bg-center hover:scale-105 transition-transform duration-500"></div>
+      </div>
+
+      <!-- TEXTO -->
+      <div class="text-white">
+        <h2 class="font-manrope text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-4">
+          Monitorización Ambiental en Tiempo Real
+        </h2>
+
+        <p class="font-poppins text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+          El satélite incorpora sensores que permiten medir temperatura, humedad y presión atmosférica de forma continua.
+          Los datos se transmiten a la estación de tierra, donde se procesan y se representan mediante gráficas claras
+          que facilitan el análisis y la comprensión de las condiciones ambientales registradas durante la misión.
+        </p>
+      </div>
+
     </div>
-    
+
+    <!-- FEATURE 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+      <!-- IMAGEN -->
+      <div class="lg:order-2 w-full h-[220px] sm:h-[300px] lg:h-[400px] xl:h-[700px] overflow-hidden">
+        <div class="w-full h-full bg-[url('/images/feature-1.jpg')] bg-cover bg-center hover:scale-105 transition-transform duration-500"></div>
+      </div>
+
+      <!-- TEXTO -->
+      <div class="lg:order-1 text-white">
+        <h2 class="font-manrope text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-4">
+          Monitorización Ambiental en Tiempo Real
+        </h2>
+
+        <p class="font-poppins text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+          El satélite incorpora sensores que permiten medir temperatura, humedad y presión atmosférica de forma continua.
+          Los datos se transmiten a la estación de tierra, donde se procesan y se representan mediante gráficas claras
+          que facilitan el análisis y la comprensión de las condiciones ambientales registradas durante la misión.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FEATURE 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+      <!-- IMAGEN -->
+      <div class="w-full h-[220px] sm:h-[300px] lg:h-[400px] xl:h-[700px] overflow-hidden">
+        <div class="w-full h-full bg-[url('/images/satelit-bg-1.jpg')] bg-cover bg-center hover:scale-105 transition-transform duration-500"></div>
+      </div>
+
+      <!-- TEXTO -->
+      <div class="text-white">
+        <h2 class="font-manrope text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-4">
+          Monitorización Ambiental en Tiempo Real
+        </h2>
+
+        <p class="font-poppins text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+          El satélite incorpora sensores que permiten medir temperatura, humedad y presión atmosférica de forma continua.
+          Los datos se transmiten a la estación de tierra, donde se procesan y se representan mediante gráficas claras
+          que facilitan el análisis y la comprensión de las condiciones ambientales registradas durante la misión.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-[#01000F]">
+    <div class="grid grid-cols-2 lg:gap-60 gap-30 mx-auto xl:px-50 lg:px-30 md:px-20 px-10  py-16 lg:py-24 text-white">
+        <!-- EXTRA FEATURES -->
+         <div>
+            <h1>features</h1>
+         </div>
+
+         <!-- IMG -->
+         <div>
+            <h1>IMG</h1>
+         </div>
+    </div>
 </section>
