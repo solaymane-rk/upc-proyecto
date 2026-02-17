@@ -7,5 +7,12 @@ import { NavbarComponent } from '../layout/navbar/navbar.component';
   styleUrl: './features.component.css'
 })
 export class FeaturesComponent {
+  protected open: string = "";
 
+  toggle(event:Event){
+    let element = event.currentTarget as HTMLElement
+
+    this.open = this.open == element.id ? "" : element.id;
+    console.log(this.open)
+  }
 }
