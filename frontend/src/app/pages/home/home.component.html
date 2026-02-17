@@ -1,10 +1,9 @@
-<section class="sm:h-screen sm:py-0 py-30 bg-[url(/images/hero-main.jpg)] bg-cover bg-bottom bg-fixed relative 
-        after:absolute after:opacity-30 after:z-0 after:bg-black after:w-full after:h-full after:top-0 after:left-0">
-    <div class="text-amber-50 flex items-center h-full xl:p-50 md:p-20 p-10">
+<section class="h-screen bg-[url(/images/hero-main.jpg)] bg-cover bg-bottom bg-fixed relative">
+    <div class="text-white flex items-center h-full max-w-10/12 mx-auto w-full px-4">
         <div class="z-10 lg:w-4/12">
             <h1 class="text-5xl mb-5">Simulador de Satélite Educativo</h1>
             <p class="text-1xl font-normal mb-5">Descubre cómo un grupo de estudiantes de la UPC ha diseñado un simulador de satélite basado en Arduino.</p>
-            <a href="/features/#features" class="
+            <a href="/proyecto" class="
                 text-white font-semibold px-8 py-2 bg-[#ffffff33] rounded-[55px] border border-[#ffffff]
                 hover:bg-[#ffffffdd] hover:text-black hover:cursor-pointer hover:shadow-[#ffffff] hover:shadow-xs transition
             ">
@@ -12,4 +11,59 @@
         </a>
         </div>
     </div>
+</section>
+
+
+<section id="features" class="bg-black">
+
+    <div class="relative flex justify-center flex-col items-center font-manrope pt-25 px-10">
+        <p class="text-white md:text-4xl text-3xl font-semibold">FEATURES</p>
+        <p class="text-white md:text-2xl text-xl font-normal">Discover more about <span class="text-[#2E1AFF]">name project</span> for the new future. </p>
+    </div>
+  <div class="grid lg:gap-60 gap-30 mx-auto w-10/12">
+    <!-- FEATURE 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+
+      <!-- IMAGEN -->
+      <div class="w-full h-[220px] sm:h-[300px] lg:h-[400px] xl:h-[700px] overflow-hidden">
+        <div class="w-full h-full bg-[url('/images/satelit-bg-1.jpg')] bg-cover bg-center hover:scale-105 transition-transform duration-500"></div>
+      </div>
+
+      <!-- TEXTO -->
+      <div class="text-white">
+        <h2 class="font-manrope text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-4">
+          Monitorización Ambiental en Tiempo Real
+        </h2>
+
+        <p class="font-poppins text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+          El satélite incorpora sensores que permiten medir temperatura, humedad y presión atmosférica de forma continua.
+          Los datos se transmiten a la estación de tierra, donde se procesan y se representan mediante gráficas claras
+          que facilitan el análisis y la comprensión de las condiciones ambientales registradas durante la misión.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FEATURE 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center  pb-20">
+
+      <!-- IMAGEN -->
+      <div class="lg:order-2 w-full h-[220px] sm:h-[300px] lg:h-[400px] xl:h-[700px] overflow-hidden">
+        <div class="w-full h-full bg-[url('/images/feature-1.jpg')] bg-cover bg-center hover:scale-105 transition-transform duration-500"></div>
+      </div>
+
+      <!-- TEXTO -->
+      <div class="lg:order-1 text-white">
+        <h2 class="font-manrope text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight mb-4">
+          Detección de Distancias y Movimiento Controlado
+        </h2>
+
+        <p class="font-poppins text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+          El sistema integra un sensor de ultrasonidos junto a un mecanismo de movimiento controlado, capaz de detectar objetos y medir distancias con precisión. Esta información se visualiza en la estación de tierra mediante representaciones gráficas intuitivas, ofreciendo una interpretación rápida del entorno detectado.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
 </section>
