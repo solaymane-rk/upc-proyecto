@@ -3,7 +3,7 @@
   background-color: #111;
   color: white;
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 120px 20px 40px; /* Aumentado el padding-top para compensar la navbar */
 }
 
 .titulo-seccion h1 {
@@ -36,6 +36,10 @@
   height: 40px;
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .btn-carrusel:hover {
@@ -108,8 +112,38 @@
 /* Botones de la tarjeta */
 .tarjeta-botones {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor de botones sociales (GitHub y LinkedIn) */
+.botones-sociales {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #444;
+  background-color: transparent;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-social:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
 }
 
 .btn-sabemas {
@@ -133,13 +167,13 @@
   color: #aaa;
   border: 1px solid #3a3a3a;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 0.6rem;
+  width: 36px;
+  height: 36px;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .btn-github:hover {
@@ -170,7 +204,7 @@
 
 /* ---- Habilidades ---- */
 .habilidades-seccion {
-  background-color: #0d0d0d;
+  background-color: #111;
   padding: 40px 20px;
 }
 

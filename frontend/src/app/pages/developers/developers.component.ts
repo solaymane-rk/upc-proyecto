@@ -12,6 +12,7 @@ export class DevelopersComponent {
       id: 1,
       nombre: 'Jose Miguel Risco Muñoz',
       descripcion: 'Lorem ipsum dolor sit amet consectetur.',
+      linkedin: 'https://www.linkedin.com/in/jose-miguel-risco-mu%C3%B1oz-01b108258/',
       github: 'https://github.com/jose050204',
       foto: ''
     },
