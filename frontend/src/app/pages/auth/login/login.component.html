@@ -1,1 +1,79 @@
-<p>login works!</p>
+<section class="min-h-screen bg-[url(/images/bg-contact.jpg)] bg-cover bg-center relative flex items-center py-20">
+  <!-- Overlay oscuro opcional -->
+  <div class="absolute inset-0 bg-black/70"></div>
+  
+  <!-- Contenedor del formulario -->
+  <div class="max-w-10/12 mx-auto w-full px-4 relative z-10">
+    <h1 class="text-white text-5xl mb-5 text-center">
+      Inicia Sesión
+    </h1>
+
+    <!-- Formulario -->
+    <form
+      class="max-w-xl mx-auto rounded-lg p-8 bg-white/20 border-white/20 backdrop-blur-md"
+      [formGroup]="formContact"
+      (ngSubmit)="submit()"
+    >
+      <!-- Correo electrónico -->
+      <div class="mb-4">
+        <input 
+          type="email" 
+          placeholder="Correo electrónico" 
+          class="w-full px-4 py-3 rounded bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          formControlName="email"
+          required
+        />
+        @if(formContact.get('email')?.errors?.['pattern']) {
+          <span class="text-red-500 block text-sm mt-1">
+            Email no válido
+          </span>
+        }
+      </div>
+
+      <!-- Contraseña -->
+      <div class="mb-4">
+        <div class="relative">
+            <input 
+                type="password" 
+                placeholder="Contraseña" 
+                id="password"
+                class="w-full px-4 py-3 rounded bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                formControlName="password"
+                required
+            />
+            <div (click)="verOcultarPassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800 focus:outline-none cursor-pointer">
+                <i id="password-icon" class="fa-regular fa-eye-slash"></i>
+            </div>
+        </div>
+        
+        @if(formContact.get('password')?.errors?.['pattern']) {
+          <span class="text-red-500 block text-sm mt-1">
+            La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial
+          </span>
+        }
+        @if(formContact.get('password')?.errors?.['minlength']) {
+          <span class="text-red-500 block text-sm mt-1">
+            La contraseña debe tener al menos 6 caracteres
+          </span>
+        }
+      </div>
+      
+      <!-- Botón Enviar -->
+      <div class="text-center">
+        <button 
+          type="submit"
+          class="bg-white hover:bg-gray-200 transition-colors text-black font-medium px-8 py-2 rounded-full cursor-pointer"
+          [disabled]="formContact.invalid"
+        >
+          Iniciar Sesión
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+
