@@ -15,4 +15,5 @@ export const routes: Routes = [
     {path: 'contacto', component: ContactComponent},
     {path: 'login', component: LoginComponent},
     {path: 'politica-privacidad', component:PrivacyPolicyComponent}
+    
 ];
