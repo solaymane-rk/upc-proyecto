@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import path from 'node:path';
+
 import { HomeComponent } from './pages/home/home.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { DevelopersComponent } from './pages/developers/developers.component';
