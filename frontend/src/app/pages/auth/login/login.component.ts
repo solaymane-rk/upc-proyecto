@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,29 +10,47 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  loginError: string = '';
+  isLoading: boolean = false;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
   formContact = new FormGroup({
     email: new FormControl('', [
-      Validators.required, 
+      Validators.required,
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
     ]),
-    // pattern tiene que contener obligatoriamente: una minuscula, una mayuscula, un numero y un caracter especial
     password: new FormControl('', [
-      Validators.required, 
+      Validators.required,
       Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#._-]).*$/),
       Validators.minLength(6)
     ]),
   });
 
   submit(): void {
-    alert('Enviando formulario...');
-    console.log('Formulario enviado:', this.formContact.value);
     if (this.formContact.valid) {
-      console.log('Formulario enviado:', this.formContact.value);
-      alert('Formulario enviado correctamente');
-      this.formContact.reset();
+      this.isLoading = true;
+      this.loginError = '';
+
+      const { email, password } = this.formContact.value;
+
+      this.authService.login(email!, password!).subscribe({
+        next: (response: any) => {
+          this.authService.saveToken(response.token);
+          this.router.navigate(['/inicio']);
+        },
+        error: (err: any) => {
+          this.isLoading = false;
+          this.loginError = err.status === 401
+            ? 'Email o contraseña incorrectos'
+            : 'Ha ocurrido un error, inténtalo de nuevo';
+        }
+      });
     } else {
-      alert('Por favor, completa todos los campos correctamente');
-      // Marcar todos los campos como tocados para mostrar errores
       Object.keys(this.formContact.controls).forEach(key => {
         this.formContact.get(key)?.markAsTouched();
       });
