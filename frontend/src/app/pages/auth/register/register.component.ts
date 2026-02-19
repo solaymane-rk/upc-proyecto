@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class RegisterComponent {
 
-  loginError: string = '';
+  registerError: string = '';
   isLoading: boolean = false;
 
   constructor(
@@ -38,18 +38,18 @@ export class RegisterComponent {
   submit(): void {
     if (this.formContact.valid) {
       this.isLoading = true;
-      this.loginError = '';
+      this.registerError = '';
 
-      const { email, password } = this.formContact.value;
+      const { name, email, password } = this.formContact.value;
 
-      this.authService.login(email!, password!).subscribe({
+      this.authService.register(name!, email!, password!).subscribe({
         next: (response: any) => {
           this.authService.saveToken(response.token);
           this.router.navigate(['/inicio']);
         },
         error: (err: any) => {
           this.isLoading = false;
-          this.loginError = err.status === 401
+          this.registerError = err.status === 401
             ? 'Email o contraseña incorrectos'
             : 'Ha ocurrido un error, inténtalo de nuevo';
         }
