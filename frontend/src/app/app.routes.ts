@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,8 +19,5 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegisterComponent},
     {path: 'politica-privacidad', component:PrivacyPolicyComponent},
-    {path: 'dashboard', canActivate: [AuthGuardService], component: LoginComponent, children: [
-        {path: 'users', component: undefined},
-        {path: 'satelites', component: undefined}
-    ]}
+    {path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent}
 ];
