@@ -41,7 +41,7 @@ export class LoginComponent {
       this.authService.login(email!, password!).subscribe({
         next: (response: any) => {
           this.authService.saveToken(response.token);
-          this.router.navigate(['/inicio']);
+          this.router.navigate(['/dashboard']);
         },
         error: (err: any) => {
           this.isLoading = false;
