@@ -19,12 +19,19 @@
         </div>
 
         <div class="flex items-center space-x-4">
-          <a routerLink="/registro" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all "> 
-            Regístrate 
-          </a>
-          <a routerLink="/login" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full"> 
-            Inicia Sesión 
-          </a>
+          @if(this.authService.isLoggedIn()){
+            <a routerLink="/registro" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all "> 
+              Regístrate 
+            </a>
+            <a routerLink="/login" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full"> 
+              Inicia Sesión 
+            </a>
+          }@else {
+            <a (click)="this.authService.logout()" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full"> 
+              Logout
+            </a>
+          }
+
         </div>
         
       </div>
