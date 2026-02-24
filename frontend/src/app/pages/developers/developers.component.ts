@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-developers',
   imports: [],
-  templateUrl: './developers.component.html',
-  styleUrl: './developers.component.css'
+  templateUrl: './developers.component.html'
 })
 export class DevelopersComponent {
   developers = [
@@ -14,7 +13,7 @@ export class DevelopersComponent {
       descripcion: 'Lorem ipsum dolor sit amet consectetur.',
       linkedin: 'https://www.linkedin.com/in/jose-miguel-risco-mu%C3%B1oz-01b108258/',
       github: 'https://github.com/jose050204',
-      foto: ''
+      foto: 'images/jose.jpg'
     },
     {
       id: 2,
@@ -46,7 +45,7 @@ export class DevelopersComponent {
       descripcion: 'Lorem ipsum dolor sit amet consectetur.',
       linkedin: 'https://www.linkedin.com/in/solaymane/',
       github: 'https://github.com/solaymane-rk',
-      foto: ''
+      foto: 'images/solaymane.jpg'
     },
   ];
 
