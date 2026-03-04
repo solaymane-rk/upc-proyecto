@@ -1,0 +1,15 @@
+<div wire:poll.2s="apiConsumer">
+    @foreach ($satellites as $satellite)
+    <div class="border-b">
+        <p class="text-3xl text-black">Satelite: {{ $satellite->name }}</p>
+        <p class="text-xl">Altitud: <span class="text-black">{{ $satellite->altitude }} m</span></p>
+        <p class="text-xl">Velocity: <span class="text-black">{{ $satellite->velocity }} km/h</span></p>
+        <p class="text-xl">Bateria:  <span style="color: {{ $satellite->battery > 15 ? 'green' : 'red' }}" >{{ $satellite->battery }}%</span> </p>
+        <livewire:satellite-commander
+        :mode="$satellite->mode"
+        :satelliteId="$satellite->id"
+        :battery="$satellite->battery"
+        wire:key="{{ $satellite->id }}">
+    </div>
+    @endforeach
+</div>

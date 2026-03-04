@@ -9,4 +9,11 @@ class Satellite extends Model
 {
     /** @use HasFactory<\Database\Factories\SatelliteFactory> */
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'altitude',
+        'velocity',
+        'battery',
+        'mode',
+    ];
 }
