@@ -1,3 +1,5 @@
+<div>
+<input wire:model.live.debounce.300ms="search" type="search" placeholder="Nombre satelite"/>
 <div wire:poll.2s="apiConsumer">
     @foreach ($satellites as $satellite)
     <div class="border-b">
@@ -12,4 +14,5 @@
         wire:key="{{ $satellite->id }}">
     </div>
     @endforeach
+</div>
 </div>
