@@ -15,5 +15,6 @@ class Satellite extends Model
         'velocity',
         'battery',
         'mode',
+        'anomalies_count'
     ];
 }

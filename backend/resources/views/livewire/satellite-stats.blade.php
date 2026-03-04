@@ -12,6 +12,7 @@
         :satelliteId="$satellite->id"
         :battery="$satellite->battery"
         wire:key="{{ $satellite->id }}">
+        <livewire:alert-system :satelliteId="$satellite->id" wire:key="{{ $satellite->id }}">
     </div>
     @endforeach
 </div>
