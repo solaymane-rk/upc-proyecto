@@ -1,126 +1,134 @@
-<!-- Sección del título -->
-<section class="bg-[#111111] text-white text-center pt-[120px] px-5 pb-10">
-  <h1 class="text-2xl font-bold mb-2">
-    EQUIPO DE DESARROLLADORES WEB
-  </h1>
-  <p class="text-[#aaaaaa] text-base">
-    Conoce al equipo de desarrolladores web encargados de hacer la página.
-  </p>
-</section>
+<section class="bg-[#01000F] py-40 px-4 border-t border-white/10">
+  <div class="max-w-10/12 mx-auto w-full">
 
-<section
-  class="bg-[#111111] flex items-center justify-center gap-4 px-5 py-8 flex-col md:flex-row"
->
-  <!-- Botón anterior (oculto en móvil) -->
-  <button
-    class="hidden md:flex bg-[#222222] text-white border border-[#444444] rounded-full w-10 h-10 text-2xl cursor-pointer items-center justify-center leading-none hover:bg-[#333333] transition"
-    (click)="anterior()"
-  >
-    &#8249;
-  </button>
+    <!-- Cabecera + controles -->
+    <div class="flex items-end justify-between mb-16">
+      <div>
+        <p class="text-white font-manrope text-4xl lg:text-5xl font-semibold mb-3">El Equipo</p>
+        <p class="text-gray-400 font-poppins text-base max-w-xl">
+          Detrás de cada línea de código hay una persona apasionada por la tecnología y el diseño.
+        </p>
+      </div>
 
-  <!-- Tarjetas de los developers -->
-  <div
-    class="flex gap-4 flex-col items-center md:flex-row"
-  >
-    @for (dev of getDevsVisibles(); track dev.id) {
-      <div
-        class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl w-[90%] max-w-[320px] overflow-hidden md:w-[220px] md:max-w-none hover:border-[#555555] transition"
-      >
-        <!-- Foto del developer -->
-        <div class="relative h-[200px] bg-[#dddddd] md:h-[180px]">
-          <img
-            [src]="dev.foto || 'assets/img/default-avatar.png'"
-            [alt]="dev.nombre"
-            class="w-full h-full object-cover"
-          />
-        </div>
+      <div class="hidden md:flex gap-3">
+        <button (click)="anterior()"
+          class="flex items-center justify-center w-11 h-11 rounded-full border border-white/20
+            bg-white/5 text-white backdrop-blur-sm transition
+            hover:bg-white hover:text-black hover:border-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button (click)="siguiente()"
+          class="flex items-center justify-center w-11 h-11 rounded-full border border-white/20
+            bg-white/5 text-white backdrop-blur-sm transition
+            hover:bg-white hover:text-black hover:border-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
 
-        <!-- Info del developer -->
-        <div class="p-3">
-          <h3 class="text-[#f0f0f0] text-sm font-semibold mb-1">
-            {{ dev.nombre }}
-          </h3>
-          <p class="text-[#888888] text-[0.78rem] mb-2">
-            {{ dev.descripcion }}
-          </p>
-
-          <div class="flex gap-2 items-center justify-center mt-2">
-            <!-- GitHub -->
-            <a
-              [href]="dev.github"
-              target="_blank"
-              aria-label="GitHub"
-              class="flex items-center justify-center w-9 h-9 rounded-full border border-[#444444] bg-transparent text-[#aaaaaa] no-underline transition hover:bg-white hover:text-black hover:border-white"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-                />
-              </svg>
-            </a>
-
-            <!-- LinkedIn -->
-            <a
-              [href]="dev.linkedin"
-              target="_blank"
-              aria-label="LinkedIn"
-              class="flex items-center justify-center w-9 h-9 rounded-full border border-[#444444] bg-transparent text-[#aaaaaa] no-underline transition hover:bg-white hover:text-black hover:border-white"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0H12v2.16h.07C12.67 9.04 14.1 8 16.25 8 21 8 22 11.08 22 15.16V24h-5v-7.87c0-1.88-.03-4.3-2.62-4.3-2.63 0-3.03 2.05-3.03 4.17V24H7.5V8z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+    <!-- LOADING -->
+    @if (loading) {
+      <div class="flex justify-center items-center h-64 gap-3">
+        <div class="w-5 h-5 rounded-full border-2 border-white/20 border-t-white animate-spin"></div>
+        <p class="text-gray-400 font-poppins text-sm">Cargando equipo...</p>
       </div>
     }
-  </div>
 
-  <!-- Botón siguiente (oculto en móvil) -->
-  <button
-    class="hidden md:flex bg-[#222222] text-white border border-[#444444] rounded-full w-10 h-10 text-2xl cursor-pointer items-center justify-center leading-none hover:bg-[#333333] transition"
-    (click)="siguiente()"
-  >
-    &#8250;
-  </button>
-</section> 
-
-<!-- Indicadores (dots) del carrusel -->
-<div class="bg-[#111111] flex justify-center gap-2 pb-8">
-  @for (dot of getDots(); track $index) {
-    <span
-      class="w-2.5 h-2.5 rounded-full inline-block bg-[#333333]"
-      [class.bg-[#888888]]="$index === indiceActual"
-    ></span>
-  }
-</div>
-
-<!-- Sección de habilidades -->
-<section class="bg-[#111111] py-10 px-5">
-  <div
-    class="grid gap-4 max-w-[900px] mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-  >
-    @for (hab of habilidades; track $index) {
-      <div
-        class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg py-5 px-4"
-      >
-        <p class="text-[#888888] text-sm m-0">
-          {{ hab }}
+    <!-- ERROR -->
+    @if (error) {
+      <div class="flex justify-center items-center h-64">
+        <p class="text-red-400 font-poppins text-sm">
+          No se pudo cargar el equipo. Inténtalo de nuevo más tarde.
         </p>
       </div>
     }
+
+    <!-- CARRUSEL -->
+    @if (!loading && !error) {
+      <div class="overflow-hidden">
+        <div
+          class="flex gap-6 transition-transform duration-500 ease-in-out"
+          [style.transform]="'translateX(calc(-' + indiceActual + ' * (100% / ' + visibles + ' + 24px / ' + visibles + ')))'">
+
+          @for (dev of developers; track dev.id) {
+            <div class="group flex-shrink-0 rounded-2xl overflow-hidden border border-white/10 bg-white/5
+              backdrop-blur-md hover:border-white/30 hover:bg-white/10 transition-all duration-300"
+              [style.width]="'calc((100% - ' + (visibles - 1) * 24 + 'px) / ' + visibles + ')'">
+
+              <!-- Foto -->
+              <div class="relative h-80 overflow-hidden bg-[#0d0d1a]">
+                <img
+                  [src]="dev.foto || 'assets/img/default-avatar.png'"
+                  [alt]="dev.nombre"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
+
+              <!-- Info -->
+              <div class="p-5">
+                <h3 class="text-white font-manrope text-lg font-semibold mb-1">{{ dev.nombre }}</h3>
+                <p class="text-gray-400 font-poppins text-sm mb-5 leading-relaxed">{{ dev.descripcion }}</p>
+
+                <div class="flex gap-3">
+                  <a [href]="dev.github" target="_blank" aria-label="GitHub"
+                    class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20
+                      bg-transparent text-white no-underline transition
+                      hover:bg-white hover:text-black hover:border-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+
+                  <a [href]="dev.linkedin" target="_blank" aria-label="LinkedIn"
+                    class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20
+                      bg-transparent text-white no-underline transition
+                      hover:bg-white hover:text-black hover:border-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0H12v2.16h.07C12.67 9.04 14.1 8 16.25 8 21 8 22 11.08 22 15.16V24h-5v-7.87c0-1.88-.03-4.3-2.62-4.3-2.63 0-3.03 2.05-3.03 4.17V24H7.5V8z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 mt-10">
+        @for (dot of getDots(); track $index) {
+          <button
+            (click)="irA($index)"
+            class="h-2 rounded-full transition-all duration-300"
+            [class]="$index === indiceActual ? 'w-6 bg-white' : 'w-2 bg-white/30'">
+          </button>
+        }
+      </div>
+
+      <!-- Botones móvil -->
+      <div class="flex md:hidden justify-center gap-4 mt-6">
+        <button (click)="anterior()"
+          class="flex items-center justify-center w-11 h-11 rounded-full border border-white/20
+            bg-white/5 text-white transition hover:bg-white hover:text-black hover:border-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button (click)="siguiente()"
+          class="flex items-center justify-center w-11 h-11 rounded-full border border-white/20
+            bg-white/5 text-white transition hover:bg-white hover:text-black hover:border-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    }
+
   </div>
 </section>

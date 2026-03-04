@@ -1,85 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DevelopersService } from '../../services/developers.service'; 
+import { Developer } from './developer.model'; 
 
 @Component({
   selector: 'app-developers',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './developers.component.html'
 })
-export class DevelopersComponent {
-  developers = [
-    {
-      id: 1,
-      nombre: 'Jose Miguel Risco Muñoz',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur.',
-      linkedin: 'https://www.linkedin.com/in/jose-miguel-risco-mu%C3%B1oz-01b108258/',
-      github: 'https://github.com/jose050204',
-      foto: 'images/jose.jpg'
-    },
-    {
-      id: 2,
-      nombre: 'Jeremy Intriago Pachay',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur.',
-      linkedin: 'https://www.linkedin.com/in/jeremy-intriago-6735202b3/',
-      github: 'https://github.com/injerr',
-      foto: ''
-    },
-    {
-      id: 3,
-      nombre: 'Justin Monteiro Delicado',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur.',
-      linkedin: 'https://www.linkedin.com/in/justin-monteiro-delicado-109b1b262/',
-      github: 'https://github.com/duustixx',
-      foto: ''
-    },
-    {
-      id: 4,
-      nombre: 'Marc Gilavert Orea',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur.',
-      linkedin: 'https://www.linkedin.com/in/marc-gilavert-orea-b1851a2b3/',
-      github: 'https://github.com/duustixx',
-      foto: ''
-    },
-    {
-      id: 5,
-      nombre: 'Solaymane Roukdi Amhaj',
-      descripcion: 'Lorem ipsum dolor sit amet consectetur.',
-      linkedin: 'https://www.linkedin.com/in/solaymane/',
-      github: 'https://github.com/solaymane-rk',
-      foto: 'images/solaymane.jpg'
-    },
-  ];
+export class DevelopersComponent implements OnInit {
+  private developersService = inject(DevelopersService);
 
-  habilidades = [
-    'Lorem ipsum dolor sit amet consectetur.',
-    'Lorem ipsum dolor sit amet consectetur.',
-    'Lorem ipsum dolor sit amet consectetur.',
-    'Lorem ipsum dolor sit amet consectetur.'
-  ];
+  developers: Developer[] = [];
+  loading = true;
+  error = false;
 
   indiceActual = 0;
+  visibles = 3;
+
+  ngOnInit() {
+    this.actualizarVisibles();
+
+    this.developersService.getAll().subscribe({
+      next: (data) => {
+        this.developers = data;
+        this.loading = false;
+        console.log('✅ Developers:', this.developers);
+      },
+      error: (err) => {
+        this.error = true;
+        this.loading = false;
+        console.error('Error:', err);
+      }
+    });
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.actualizarVisibles();
+  }
+
+  actualizarVisibles() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      this.visibles = 1;
+    } else if (w < 1024) {
+      this.visibles = 2;
+    } else {
+      this.visibles = 3;
+    }
+    const max = this.developers.length - this.visibles;
+    if (this.indiceActual > max) this.indiceActual = Math.max(0, max);
+  }
 
   siguiente() {
-    if (this.indiceActual < this.developers.length -3) {
-      this.indiceActual++;
-    } else {
-      this.indiceActual = 0;
-    }
+    const max = this.developers.length - this.visibles;
+    this.indiceActual = this.indiceActual < max ? this.indiceActual + 1 : 0;
   }
 
   anterior() {
-    if(this.indiceActual > 0) {
-      this.indiceActual--;
-    } else {
-      this.indiceActual = this.developers.length - 3;
-    }
+    const max = this.developers.length - this.visibles;
+    this.indiceActual = this.indiceActual > 0 ? this.indiceActual - 1 : max;
   }
 
-  getDevsVisibles() {
-    return this.developers.slice(this.indiceActual, this.indiceActual + 3);
+  irA(index: number) {
+    this.indiceActual = index;
   }
 
   getDots() {
-    return Array(this.developers.length - 2).fill(0);
+    const total = this.developers.length - this.visibles + 1;
+    return Array(Math.max(total, 0)).fill(0);
   }
-
 }
