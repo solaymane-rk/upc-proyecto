@@ -1,40 +1,93 @@
 <header>
-  <nav class="font-poppins backdrop-blur-md fixed w-full top-0 border-b border-white/20 z-50">
-    <div class="max-w-10/12 mx-auto bg-white/20 border-white/20 rounded-full px-4 my-3 backdrop-blur-md">
+  <nav class="font-poppins fixed w-full top-0 z-50 md:backdrop-blur-md md:border-b md:border-white/20">
+    <div class="max-w-10/12 mx-auto md:bg-white/20 md:border md:border-white/20 rounded-full px-4 my-3 md:backdrop-blur-md">
       <div class="flex items-center justify-between h-16">
-        
         <div class="hidden md:flex items-center space-x-4 ms-4 gap-5">
           <a routerLink="/inicio" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2 text-base">
             Inicio
           </a>
-          <a routerLink="/proyecto" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2  text-base">
+          <a routerLink="/proyecto" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2 text-base">
             Proyecto
           </a>
-          <a routerLink="/desarrolladores-web" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2  text-base">
+          <a routerLink="/desarrolladores-web" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2 text-base">
             Desarrolladores Web
           </a>
-          <a routerLink="/contacto" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2  text-base">
+          <a routerLink="/contacto" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all py-2 text-base">
             Contacto
           </a>
         </div>
 
-        <div class="flex items-center space-x-4">
-          @if(this.authService.isLoggedIn()){
-            <a routerLink="/registro" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all "> 
-              Regístrate 
+        <div class="hidden md:flex items-center space-x-4">
+          @if(!this.authService.isLoggedIn()){
+            <a routerLink="/registro" routerLinkActive="font-semibold" class="text-white hover:text-gray-300 transition-all">
+              Regístrate
             </a>
-            <a routerLink="/login" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full"> 
-              Inicia Sesión 
+            <a routerLink="/login" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full">
+              Inicia Sesión
             </a>
-          }@else {
-            <a (click)="this.authService.logout()" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full"> 
+          } @else {
+            <a (click)="this.authService.logout()" class="bg-white hover:bg-gray-200 transition-all text-black font-medium px-8 py-2 rounded-full cursor-pointer">
               Logout
             </a>
           }
-
         </div>
-        
+
+        <button (click)="toggleMenu()" class="md:hidden ml-auto text-white focus:outline-none" aria-label="Abrir menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
       </div>
     </div>
   </nav>
 </header>
+
+@if (isMenuOpen()) {
+  <div class="fixed inset-0 z-[100] bg-white flex flex-col p-8 md:hidden font-poppins">
+
+    <div class="flex justify-end">
+      <button (click)="closeMenu()" class="text-black focus:outline-none" aria-label="Cerrar menú">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex-1 flex flex-col justify-center">
+      <div class="flex flex-col gap-6 mb-6">
+        <a routerLink="/inicio" routerLinkActive="font-semibold" (click)="closeMenu()"
+           class="text-black hover:text-gray-500 transition-all text-base">Inicio</a>
+        <a routerLink="/proyecto" routerLinkActive="font-semibold" (click)="closeMenu()"
+           class="text-black hover:text-gray-500 transition-all text-base">Proyecto</a>
+        <a routerLink="/desarrolladores-web" routerLinkActive="font-semibold" (click)="closeMenu()"
+           class="text-black hover:text-gray-500 transition-all text-base">Desarrolladores Web</a>
+        <a routerLink="/contacto" routerLinkActive="font-semibold" (click)="closeMenu()"
+           class="text-black hover:text-gray-500 transition-all text-base">Contacto</a>
+      </div>
+
+      <div class="border-t border-black/50 mb-4"></div>
+
+      <div class="flex flex-col items-end gap-3">
+        @if(!this.authService.isLoggedIn()){
+          <a routerLink="/registro" (click)="closeMenu()"
+             class="text-black hover:text-gray-500 transition-all text-base">
+            Regístrate
+          </a>
+          <a routerLink="/login" (click)="closeMenu()"
+             class="text-black hover:text-gray-500 transition-all text-base">
+            Inicia Sesión
+          </a>
+        } @else {
+          <a (click)="authService.logout(); closeMenu()"
+             class="text-black hover:text-gray-500 transition-all text-base cursor-pointer">
+            Logout
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+}
+

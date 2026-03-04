@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
+// footer.component.ts
+import { Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  authService = inject(AuthService);
 }
