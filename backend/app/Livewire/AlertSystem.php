@@ -8,6 +8,13 @@ use Livewire\Component;
 class AlertSystem extends Component
 {
     public $satelliteId;
+    public $anomalies;
+
+    public function mount(){
+        $satellite = Satellite::find($this->satelliteId);
+        $this->anomalies = intval($satellite->anomalies_count);
+    }
+
     public function render()
     {
         return view('livewire.alert-system');
@@ -15,7 +22,8 @@ class AlertSystem extends Component
 
     public function incrementAnomaly() {
         $satellite = Satellite::find($this->satelliteId);
-        $anomalyCout = $satellite->anomalies_count;
-        $satellite->update(['anomalies_count' => $anomalyCout]);
+        $anomalyCount = intval($satellite->anomalies_count)+1;
+        $satellite->update(['anomalies_count' => $anomalyCount]);
+        $this->anomalies = $anomalyCount;
     }
 }
