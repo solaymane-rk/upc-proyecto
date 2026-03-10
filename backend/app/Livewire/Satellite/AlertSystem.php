@@ -32,7 +32,7 @@ class AlertSystem extends Component
             'alert',
             $oldCount,
             $newCount,
-            "Anomalia registrada. Total acumulado: {$newCount}"
+            "Anomalía registrada. Total acumulado: {$newCount}"
         );
     }
 }
