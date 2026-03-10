@@ -9,6 +9,7 @@ class SatelliteStats extends Component
 {
     public $satellites;
     public $search;
+    public $columnSearch = 'name';
 
     public function mount() {
         $this->apiConsumer();
@@ -22,7 +23,7 @@ class SatelliteStats extends Component
     public function apiConsumer(){
         // $this->satellites = Satellite::all();
         $this->satellites = Satellite::query()
-        ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%"))
+        ->when($this->search, fn($q) => $q->where($this->columnSearch, 'like', "%{$this->search}%"))
         ->get();
     }
 

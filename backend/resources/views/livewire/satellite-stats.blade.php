@@ -1,5 +1,11 @@
 <div>
 <input wire:model.live.debounce.300ms="search" type="search" placeholder="Nombre satelite"/>
+
+    <select wire:model.live="columnSearch" wire:loading.attr="disabled">
+        <option value="" disabled>Escoge una opción</option>
+        <option value="name">Nombre</option>
+        <option value="norad_id">Norad Id</option>
+    </select>
 <div wire:poll.2s="apiConsumer">
     @foreach ($satellites as $satellite)
     <div class="border-b">
@@ -13,6 +19,7 @@
         :battery="$satellite->battery"
         wire:key="commander-{{ $satellite->id }}">
         <livewire:alert-system :satelliteId="$satellite->id" wire:key="satellite-{{ $satellite->id }}">
+        <livewire:satellite-speed-altitude :satelliteId="$satellite->id" wire:key="vars-{{ $satellite->id }}">
     </div>
     @endforeach
 </div>

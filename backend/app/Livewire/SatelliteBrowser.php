@@ -9,6 +9,8 @@ class SatelliteBrowser extends Component
 {
     public $search;
     public $satellites = [];
+    public $columnSearch = 'name';
+
     public function mount(){
         $this->satellites = Satellite::all();
     }
@@ -19,7 +21,7 @@ class SatelliteBrowser extends Component
 
     public function updatedSearch($value){
         $this->satellites = Satellite::query()
-        ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%"))
+        ->when($this->search, fn($q) => $q->where($this->columnSearch, 'like', "%{$this->search}%"))
         ->get();
     }
 }
