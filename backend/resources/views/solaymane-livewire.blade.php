@@ -5,5 +5,7 @@
         @livewire('satellite-browser')
         <hr class="border-gray-700">
         @livewire('satellite-stats')
+        <hr class="border-gray-700">
+        @livewire('maintenance-planner')
     </div>
 @endsection

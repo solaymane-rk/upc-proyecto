@@ -30,8 +30,9 @@ class Satellite extends Model
         ]);
     }
 
-    public function events()
+    public function maintenances()
     {
-        return $this->hasMany(SatelliteEvent::class);
+        return $this->hasMany(Maintenance::class);
     }
+
 }

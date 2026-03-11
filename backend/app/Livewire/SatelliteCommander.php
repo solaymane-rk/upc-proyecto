@@ -29,7 +29,6 @@ class SatelliteCommander extends Component
     {
         // Validación real en el servidor
         if ($value === 'Maniobra' && $this->battery < 20) {
-            $this->addError('mode', 'No se puede activar Maniobra con batería inferior al 20%.');
             // Revertimos al valor anterior en BD
             $this->mode = Satellite::find($this->satelliteId)->mode;
             return;
