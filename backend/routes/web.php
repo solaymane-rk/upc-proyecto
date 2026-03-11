@@ -13,9 +13,8 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 
-//RUTA PARA LA TAREA 1
-Route::get('/control-center', function () {
-    return view('control-center');
+Route::get('/solaymane-livewire', function () {
+    return view('solaymane-livewire');
 });
 
 Route::get('/hola', function () {

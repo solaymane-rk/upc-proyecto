@@ -7,28 +7,21 @@ use Livewire\Component;
 
 class SatelliteStats extends Component
 {
-    public $satellites;
-    public $search;
-
-    public function mount() {
-        $this->apiConsumer();
-    }
-
-    public function updatedSearch($value){
-        $this->search = $value;
-        $this->apiConsumer();
-    }
-
-    public function apiConsumer(){
-        // $this->satellites = Satellite::all();
-        $this->satellites = Satellite::query()
-        ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%"))
-        ->get();
+    public function simularDatos(): void
+    {
+        Satellite::all()->each(function ($satellite) {
+            $satellite->update([
+                'altitude' => rand(500, 5000),
+                'velocity' => rand(10000,50000),
+                'battery'  => rand(0,101)
+            ]);
+        });
     }
 
     public function render()
     {
-        return view('livewire.satellite-stats');
-    }
+        $satellites = Satellite::all();
 
+        return view('livewire.satellite-stats', compact('satellites'));
+    }
 }

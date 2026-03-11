@@ -7,19 +7,17 @@ use Livewire\Component;
 
 class SatelliteBrowser extends Component
 {
-    public $search;
-    public $satellites = [];
-    public function mount(){
-        $this->satellites = Satellite::all();
-    }
+    public string $search = '';
+
     public function render()
     {
-        return view('livewire.satellite-browser');
-    }
+        $satellites = Satellite::query()
+            ->when($this->search, function ($q) {
+                $q->where('name', 'like', "%{$this->search}%")
+                  ->orWhere('norad_id', 'like', "%{$this->search}%");
+            })
+            ->get();
 
-    public function updatedSearch($value){
-        $this->satellites = Satellite::query()
-        ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%"))
-        ->get();
+        return view('livewire.satellite-browser', compact('satellites'));
     }
 }
