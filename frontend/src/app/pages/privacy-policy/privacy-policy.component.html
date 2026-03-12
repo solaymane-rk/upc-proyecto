@@ -1,1 +1,148 @@
-<h1>Hola estoy en el componente de política de privacidad</h1>
+<div class="min-h-screen bg-[#01000F] text-white relative overflow-hidden">
+ 
+  <!-- Starfield background -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    <!-- Subtle earth glow at bottom -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120vw] h-64 rounded-full"></div>
+  </div>
+ 
+  <!-- Main Content -->
+  <main class="relative z-10 max-w-5xl mx-auto py-30">
+ 
+    <!-- Header -->
+    <div class="mb-14 text-center">
+      <p class="text-xs uppercase tracking-[0.35em] text-gray-500 mb-4 font-light">Documento legal</p>
+      <h1 class="text-5xl text-white mb-5">
+        Política de Privacidad
+      </h1>
+      <div class="w-16 h-px bg-gray-600 mx-auto mt-6"></div>
+      <p class="text-gray-500 text-sm mt-6 font-light">Última actualización: marzo de 2025</p>
+    </div>
+ 
+    <!-- Content card -->
+    <div class="rounded-2xl p-10 space-y-10"
+         style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
+ 
+      <!-- Section 1 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">01</span>
+          <span class="tracking-wide">Responsable del Tratamiento</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          En cumplimiento del <strong class="text-gray-300 font-normal">Reglamento (UE) 2016/679</strong> del Parlamento Europeo y del Consejo (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), le informamos que el responsable del tratamiento de sus datos es:
+        </p>
+        <div class="mt-5 pl-5 border-l border-gray-700 space-y-2 text-sm text-gray-400 font-light">
+          <p><span class="text-gray-300">Entidad:</span> UPC – INS Provençana</p>
+          <p><span class="text-gray-300">Finalidad:</span> Gestión de contacto y comunicaciones del proyecto</p>
+          <p><span class="text-gray-300">Ámbito:</span> Proyecto educativo universitario</p>
+        </div>
+      </section>
+ 
+      <!-- Section 2 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">02</span>
+          <span class="tracking-wide">Datos que Recopilamos</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light mb-5">
+          A través del formulario de contacto, recopilamos únicamente los datos necesarios para atender su solicitud:
+        </p>
+        <ul class="space-y-3">
+          @for (item of dataItems; track item) {
+            <li class="flex items-start gap-3 text-sm text-gray-400 font-light">
+              <span class="mt-1.5 w-1 h-1 rounded-full bg-gray-500 flex-shrink-0"></span>
+              <span>{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+ 
+      <!-- Section 3 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">03</span>
+          <span class="tracking-wide">Finalidad del Tratamiento</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          Los datos personales que nos facilite a través del formulario de contacto serán tratados con la finalidad de <strong class="text-gray-300 font-normal">gestionar y responder a sus consultas o solicitudes</strong>. No utilizaremos sus datos para ningún otro fin sin su consentimiento expreso.
+        </p>
+      </section>
+ 
+      <!-- Section 4 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">04</span>
+          <span class="tracking-wide">Base Legal</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          La base legal para el tratamiento de sus datos es el <strong class="text-gray-300 font-normal">consentimiento expreso</strong> que usted otorga al aceptar la presente política de privacidad antes de enviar el formulario de contacto, de conformidad con el artículo 6.1.a) del RGPD.
+        </p>
+      </section>
+ 
+      <!-- Section 5 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">05</span>
+          <span class="tracking-wide">Conservación de los Datos</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          Sus datos serán conservados durante el tiempo necesario para dar respuesta a su consulta y, posteriormente, durante los plazos legalmente establecidos. Una vez finalizada la relación, los datos serán eliminados de forma segura.
+        </p>
+      </section>
+ 
+      <!-- Section 6 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">06</span>
+          <span class="tracking-wide">Sus Derechos</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light mb-5">
+          En virtud del RGPD, usted tiene derecho a:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          @for (right of rights; track right.title) {
+            <div class="px-4 py-3 rounded-lg text-sm text-gray-400 font-light"
+                 style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+              <span class="text-gray-300">{{ right.title }}:</span> {{ right.desc }}
+            </div>
+          }
+        </div>
+      </section>
+ 
+      <!-- Section 7 -->
+      <section>
+        <h2 class="text-lg font-light text-white mb-4 flex items-center gap-3">
+          <span class="text-xs text-gray-500 font-mono">07</span>
+          <span class="tracking-wide">Seguridad</span>
+        </h2>
+        <div class="h-px bg-gray-800 mb-5"></div>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          Aplicamos medidas técnicas y organizativas apropiadas para proteger sus datos personales contra el acceso no autorizado, la pérdida accidental, la destrucción o el daño, de conformidad con los estándares de seguridad establecidos en el RGPD.
+        </p>
+      </section>
+ 
+    </div>
+ 
+    <!-- Back button -->
+    <div class="mt-10 text-center">
+      <a href="/contacto"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-700 text-gray-400 text-sm font-light hover:border-gray-400 hover:text-white transition-all duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Volver al formulario de contacto
+      </a>
+    </div>
+ 
+  </main>
+</div>
